@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/dashboard.css">
+  <link rel="stylesheet" href="/stylesheets/upload.css">
+</head>
+<body>
+  <div class="col-lg-12 col-sm-12 col-md-12">
+    <div class="row background-color">
+        <!-- NAVBAR DU HAUT -->
+      <navbar>
+        <div class="title">
+          <div class="right_header" class="btn-group">
+            <button class="btn-deconnexion" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Mon compte
+                </button>
+
+            <div id="deconnexion" class="dropdown-menu dropdown-menu-right">
+              <a href="/perso" class="dropdown-item" type="">Modifier mon compte</a>
+              <a href="/upload_img" class="dropdown-item" type="">Upload</a>
+              <a href="/galerie" class="dropdown-item" type="">Galerie</a>
+              <a href="/advice" class="dropdown-item" type="">Conseils</a>
+              <a href="/dashboard"class="dropdown-item" type="">Dashboard</a>
+              <a href="/logOut" class="dropdown-item" type="">Déconnexion</a>
+            </div>
+
+
+          </div>
+          <div class="liseret"></div>
+          <h6 class="name"><span id="first-letter" >V</span>ivo</h6>
+        </div>
+
+      </navbar>
+      <!--  -->
+
+
+
+
+      <!-- <img src="<%= typeof file != 'undefined' ? file:''%>" alt="img" class="responsive-img"> -->
+
+
+    <div class="container ">
+        <div class="row">
+            <p class="col-md-12 text-center text-success"><%= typeof msg != 'undefined' ? msg: ''%></p>
+            <h1 class="col-md-12 text-center mb-4">Ajouter une image</h1>
+        </div>
+        <div class="row">
+          <div class="col-md-6 offset-3">
+              <form method="post" action="/upload_img" enctype="multipart/form-data">
+                    <div class="form-group files">
+                      <label>Envoyez une image </label>
+                      <input type="file" class="form-control" name="img">
+                    </div>
+                    <input type="submit" class="btn btn-primary m-1" value="Envoyez">
+                    <!--<input type="hidden" name="user_id" value="<%= %>">-->
+                </form>
+          </div>
+        </div>
+    </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="./javascripts/moment.js"></script>
+  </script>
+  <script>
+    var moments = new moment();
+    moments.locale('fr');
+    var input = document.getElementsByClassName('episode');
+
+    for (var i = 0; i < input.length; i++) {
+        for (var i = 0; i < document.getElementsByClassName('episode-item').length; i++) {
+          document.getElementsByClassName('episode-item')[i].textContent ="Mise à jour le : " + moment(input[i].value).format('L');
+        }
+    }
+  </script>
+
+</body>
+</html>

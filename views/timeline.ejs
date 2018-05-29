@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+<link rel="stylesheet" href="stylesheets/timeline.css">
+</head>
+<body>
+  <div class="col-lg-12 col-sm-12 col-md-12">
+    <div class="row background-color">
+      <!-- NAVBAR DU HAUT -->
+      <navbar>
+        <div class="title">
+          <div class="right_header" class="btn-group">
+            <button class="btn" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mon compte</button>
+            <div id="deconnexion" class="dropdown-menu dropdown-menu-right">
+              <a href="/perso" class="dropdown-item" type="">Modifier mon compte</a>
+              <a href="/upload_img" class="dropdown-item" type="">Upload</a>
+              <a href="/galerie" class="dropdown-item" type="">Galerie</a>
+              <a href="/advice" class="dropdown-item" type="">Conseils</a>
+              <a href="/dashboard"class="dropdown-item" type="">Dashboard</a>
+              <a href="/logOut" class="dropdown-item" type="">Déconnexion</a>
+            </div>
+          </div>
+          <div class="liseret"></div>
+        <span><h6 class="brand_name"><a href="/dashboard"class="btn-principal" type=""><span id="first-letter">V</span>ivo</a></h6></span>
+        </div>
+      </navbar>
+      <!-- FIN NAVBAR -->
+      <div class="info col-3">
+        <!-- DEBUT RDV -->
+        <div class="perso-space">
+          <h5 id="rdv">Mes rendez-vous</h5>
+          <button type="button" class="cross" class="btn btn-primary" data-toggle="modal" data-target="#rdvModal" data-whatever="@getbootstrap">+</button>
+          <!-- CARD RDV -->
+
+            <% for (var i=0; i< newRdv.length; i++){%>
+
+        <div class="rdv_div_card">
+              <div class="card-rdv">
+              <div id="lise-top-rdv"></div>
+              <div id="lise-rdv"></div>
+
+              <span class="rdvDate"></span>
+              <span class="rdv_infos"> <%= newRdv[i].medecin%> </span>
+              <span class="rdv_infos"> <%=newRdv[i].adress%> </span>
+              <input class="rdv-lat" type="hidden"  value="<%=newRdv[i].lat%>">
+              <input class="rdv-lon" type="hidden"  value="<%=newRdv[i].lon%>">
+              <input class="rdv-date" type="hidden"  value="<%=newRdv[i].date%>">
+            </div>
+
+            <a href="/delete-rdv?id=<%=newRdv[i]._id%>"><i  class="fas fa-times-circle text-right delete-rdv"></i></a>
+        </div>
+            <%
+          }
+          %>
+
+
+
+          <!-- FIN CARD RDV -->
+
+          <!-- DEBUT FORMULAIRE RDV -->
+          <div class="card-body-rdv">
+            <div class="modal fade" id="rdvModal" tabindex="-1" role="dialog" aria-labelledby="rdvModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <div class="borderline"></div>
+                    <h5 class="modal-title" id="episodeModalLabel">Ajouter un RDV</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span class="button" aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form method="POST" action="/add-rdv">
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Date</label>
+                        <input type="date" class="form-control" id="recipient-name" placeholder="jj/mm/aaaa" name="date">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Lieu</label>
+                        <input type="text"class="form-control" id="adress_map_rdv" id="message-text" name="adress_map_rdv">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Medecin</label>
+                        <input type="text" class="form-control" id="message-text" name="medecin">
+                      </div>
+                      <div class="modal-footer">
+                        <button class="add" type="submit" class="btn btn-primary">Ajouter</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- FIN FORMULAIRE RDV -->
+
+
+        </div>
+
+        <div class="see_rdv">
+
+            <button type="button" class="btn btn-primary see_rdv_button" data-toggle="modal" data-target="#connexionModal" data-whatever="@getbootstrap"id="see-rendez-vous" >Voir mes rendez-vous</button>
+
+            <div class="modal fade" id="connexionModal" tabindex="-1" role="dialog" aria-labelledby="connexionModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <div class="borderline"></div>
+                    <h5 class="modal-title" id="exampleModalLabel">Voir mes rendez-vous</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="btn-close" aria-hidden="true">&times;</span>
+                  </button>
+                  </div>
+                  <div class="modal-body">
+
+               <h3>My Google Maps Demo</h3>
+               <div id="map"></div>
+
+
+
+                    <!--FIN FORMULAIRE CONNEXION-->
+</div>
+</div>
+</div>
+</div>
+</div>
+
+        <!-- FIN RDV -->
+        <div class="medical-team">
+          <div class="liseret-1"></div>
+          <h5>  Mon équipe soignante</h5>
+          <!-- DEBUT FORMULAIRE ADD-SOIGNANT -->
+          <div class="modal fade" id="docModal" tabindex="-1" role="dialog" aria-labelledby="docModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="borderline"></div>
+                  <h5 class="modal-title" id="docModalLabel">Ajouter un praticien</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="btn-close">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form action="/add-soignant" method="POST">
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Prénom</label>
+                      <input type="text" class="form-control" id="recipient-name" name="prenom">
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Nom</label>
+                      <input type="text" class="form-control" id="recipient-name" name="nom">
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Adresse</label>
+                      <input type="text" class="form-control" id="recipient-name" class="adress" name="adress_map">
+                    </div>
+                    <!-- MODIF EMAIL -->
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Adresse mail</label>
+                      <input type="email" class="form-control" id="recipient-name" name="email">
+                    </div>
+                    <!-- ////// -->
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Profession</label>
+                      <input type="text" class="form-control" id="recipient-name" name="profession">
+                    </div>
+                      <div class="form-group">
+                          <label for="message-text" class="col-form-label">Numéro</label>
+                        <!-- //////// MODIF NUMBER/////  -->
+                        <input type="number" class="form-control" id="recipient-name" name="numero">
+                        <!-- ////////// -->
+                        </div>
+                    <div class="modal-footer">
+                        <button class="add" type="submit" class="btn btn-primary">Ajouter</button>
+                      </div>
+                  </form>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+            <!-- FIN FORMULAIRE ADD-SOIGNANT -->
+
+            <!-- DEBUT CARD ADD-SOIGNANT -->
+              <button type="button" class="cross" class="btn btn-primary" data-toggle="modal" data-target="#docModal" data-whatever="@getbootstrap">+</button>
+
+            <% for (var i=0; i< newSoignant.length; i++ ){%>
+          <div class="card-doc">
+             <i class="picto-doc far fa-user-circle col-2"></i>
+            <div class="text-doc col-8">
+
+
+            <div class="text-soignant col-12">
+              <span><%= newSoignant[i].profession%></span>
+              <span><%= newSoignant[i].nom%></span>
+            </div>
+            <a href="/delete-soignant?id=<%=newSoignant[i]._id%>"><i class="fas fa-times-circle text-right delete-soignant"></i></a>
+            </div>
+          </div>
+          <%
+        }
+        %>
+          <!-- FIN CARD ADD-SOIGNANT -->
+
+          </div>
+      </div>
+      <div class="medical col-8 big-note">
+        <!-- DEBUT FORMULAIRE ADD-NOTE -->
+        <div>
+
+          <div class="add-ep">
+            <button type="button" class="cross" class="btn btn-primary" data-toggle="modal" data-target="#episodeModal" data-whatever="@getbootstrap">+</button>
+          </div>
+          <div class="modal fade" id="episodeModal" tabindex="-1" role="dialog" aria-labelledby="episodeModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="borderline"></div>
+                  <h5 class="modal-title" id="episodeModalLabel">Ajouter une note</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span class="btn-addEp" class="button"  aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                  <form method="POST" action="/add-note">
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Titre</label>
+                      <input type="text" class="form-control" id="recipient-name" name="titre">
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Description</label>
+                      <textarea class="form-control" id="message-text" name="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Date</label>
+                      <input type="date" class="form-control" id="message-text" name="date">
+                    </div>
+                    <div class="modal-footer">
+                      <button class="add" type="submit" class="btn btn-primary">Ajouter</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ep">
+            <h2 id="main_title2">Ma Timeline</h2>
+
+            <div class="connect_document">
+              <button type="button" class="add see_documents_button" class="btn btn-primary " data-toggle="modal" data-target="#inscriptionModal" data-whatever="@getbootstrap">Voir mes documents</button>
+              <div class="modal fade" id="inscriptionModal" tabindex="-1" role="dialog" aria-labelledby="inscriptionModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <div class="borderline"></div>
+                      <h5 class="modal-title text-center" id="exampleModalLabel">Mes documents médicaux</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true" class="btn-close">&times;</span>
+                    </button>
+                    </div>
+                    <!--DEBUT FORMULAIRE INSCRIPTION-->
+                    <div class="modal-body">
+                      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="/images/ordonnance.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="/images/radio.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="/images/analyses.jpg" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+                      <!--FIN FORMULAIRE INSCRIPTION-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+
+
+
+
+          <div class="liseret-2"></div>
+        </div>
+        <!-- FIN FORMULAIRE ADD-NOTE -->
+        <div class="nav2">
+          <!--DEBUT RECHERCHE -->
+          <nav class="nav-co" class="navbar navbar-light bg-light">
+            <!-- <div class="container">
+              <form class="form-inline">
+                <input id="input_search" id="search_bar" class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
+                <div class="search"><button class=" btn" type="submit"><i class="fas fa-search"></i></button></div>
+              </form>
+            </div> -->
+          </nav>
+
+          </div>
+
+          <!-- FIN RECHERCHE -->
+
+          <!-- DEBUT CARD-ADD-NOTE -->
+          <% for (var i=0; i< newNote.length; i++ ){%>
+
+          <div class="col-8 offset-2 note">
+
+          <div class="card-header-note">
+          <h5 class="col-11"> <%= newNote[i].titre %> </h5>
+          <a href="/delete-note?id=<%=newNote[i]._id%>"><i  class=" col-1 fas fa-times-circle text-right delete-note"></i></a>
+          </div>
+            <div class="lise-note col-12"></div>
+
+            <div class="card-body-note">
+              <%= newNote[i].description %>
+            </div>
+            <span><%= newNote[i].date %></span>
+          </div>
+          <%
+        }
+        %>
+          <!-- FIN CARD-ADD NOTE -->
+        </div>
+      </div>
+    </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <script src="/javascripts/script.js"></script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap"
+        async defer></script>
+
+ <script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAe01yXm_aQlq9XlIA_cEv_BCEiWTtnTPE&callback=initMap&libraries=places">  </script>
+<script src="./javascripts/moment.js"></script>
+<script>
+ var moments = new moment();
+ moments.locale('fr');
+ var inputDate = document.getElementsByClassName('rdv-date');
+
+ for (var i = 0; i < inputDate.length; i++) {
+     for (var i = 0; i < document.getElementsByClassName('rdvDate').length; i++) {
+       document.getElementsByClassName('rdvDate')[i].textContent ="Le : " + moment(inputDate[i].value).format('L');
+     }
+ }
+</script>
+
+<style>
+   .pac-container {
+       z-index: 10000 !important;
+   }
+</style>
+</body>
+</html>

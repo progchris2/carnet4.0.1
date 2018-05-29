@@ -1,0 +1,84 @@
+navbar {
+ background-color: #22314E;
+ height: 50px;
+ width: 100vw;
+ position: absolute;
+ top: 0px;
+}
+.btn-principal{
+   display: block;
+color: white !important;
+   border: 0;
+   margin-bottom: 50px !important;
+
+}
+
+
+.liseret {
+ height: 7px;
+ width: 100vw;
+ /* Rectangle 2: */
+ background: #00957C;
+ position: absolute;
+ top: 43px;
+}
+
+.title {
+ color: white;
+}
+.right_header {
+ color: #fff;
+ float: right;
+ margin-bottom: auto;
+ background-color: #22314E;
+ margin-top: 15px;
+ margin-right: 10px;
+}
+button.btn {
+ background-color: #22314E;
+ color: white;
+ border-radius: 0px 5px 5px 0px;
+ margin-left: -1px;
+ margin-top: -30px;
+ margin-right: 20px;
+}
+.name {
+ margin-top: 10px;
+ font-family: 'Courgette', sans-serif;
+ font-size: 20px;
+ margin-left: 10px;
+}
+#deconnexion {
+ background-color: #00957C;
+ color: #22314E;
+}
+.add {
+ background: #22314E;
+ color: white;
+ border-radius: 5px;
+ margin-top: 10px;
+}
+
+.form-group {
+   margin-bottom: 1rem;
+   margin-left: auto;
+   margin-right: auto;
+   width: 700px;
+}
+
+
+
+.modal-body {
+   margin-top: 100px;
+
+}
+
+.modal-footer{
+ width: 700px !important;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+.info{
+ color: #22314E;
+}

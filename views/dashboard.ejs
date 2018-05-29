@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/dashboard.css">
+
+  <div hidden>
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg"> <symbol id="blueberries" viewbox="0 0 53.308 53.308">
+<title>
+blueberries
+</title>
+<path d="M39.685,2.953c-7.524,0-13.623,6.099-13.623,13.623c0,2.243,0.552,4.353,1.512,6.219 c1.496-0.565,3.11-0.888,4.804-0.888c5.281,0,9.851,3.011,12.111,7.404c5.15-1.944,8.819-6.905,8.819-12.735 C53.308,9.052,47.208,2.953,39.685,2.953z" style="fill:#003879;">
+</path>
+...
+
+</svg>
+</div>
+
+</head>
+<body>
+  <div class="col-lg-12 col-sm-12 col-md-12">
+    <div class="row background-color">
+        <!-- NAVBAR DU HAUT -->
+      <navbar>
+        <div class="title">
+          <div class="right_header" class="btn-group">
+            <button class="btn-deconnexion" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Mon compte
+                </button>
+
+            <div id="deconnexion" class="dropdown-menu dropdown-menu-right">
+              <a href="/perso" class="dropdown-item" type="">Modifier mon compte</a>
+              <a href="/upload_img" class="dropdown-item" type="">Upload</a>
+              <a href="/galerie" class="dropdown-item" type="">Galerie</a>
+              <a href="/advice" class="dropdown-item" type="">Conseils</a>
+              <a href="/logOut" class="dropdown-item" type="">Déconnexion</a>
+            </div>
+
+
+          </div>
+          <div class="liseret"></div>
+          <h6 class="name"><span id="first-letter" >V</span>ivo</h6>
+        </div>
+
+      </navbar>
+      <!--  -->
+
+
+      <div class="info col-3">
+        <!-- MON ESPACE PERSO -->
+        <div class="perso-space">
+          <h5 id="mon_espace">Mon espace personnel</h5>
+          <div class="m-auto">
+            <img src="/images/avatar-1.jpg" class="profil my-3" alt="">
+          </div>
+          <h5><%= user.nom + ' ' + user.prenom %></h5>
+          <p><%= user.email %></p>
+        </div>
+        <!--  -->
+        <!-- MON EQUIPE MEDICAL -->
+        <div class="medical-team" style="margin: 0;">
+          <div class="liseret-1"></div>
+          <h5>Mon équipe médicale</h5>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="borderline"></div>
+                  <h5 class="modal-title" id="exampleModalLabel">Ajouter un praticien</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="btn-close">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form action="/add-medecin" method="POST">
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Prénom</label>
+                      <input type="text" class="form-control" id="recipient-name" name="prenom">
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Nom</label>
+                      <input type="text" class="form-control" id="recipient-name" name="nom">
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Adresse</label>
+                      <input type="text" class="form-control" id="recipient-name" name="adress">
+                    </div>
+                    <!-- MODIF EMAIL -->
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Adresse mail</label>
+                      <input type="email" class="form-control" id="recipient-name" name="email">
+                    </div>
+                    <!-- ////// -->
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Profession</label>
+                      <input type="text" class="form-control" id="recipient-name" name="profession">
+                    </div>
+                      <div class="form-group">
+                          <label for="message-text" class="col-form-label">Numéro</label>
+                        <!-- //////// MODIF NUMBER/////  -->
+                        <input type="number" class="form-control" id="recipient-name" name="numero">
+                        <!-- ////////// -->
+                        </div>
+                    <div class="modal-footer">
+                        <button class="add" type="submit" class="btn btn-primary">Ajouter</button>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- FIN MON EQUIPE MEDICAL -->
+
+<!-- MODAL INFO MEDECIN -->
+          <div class="modal fade" id="infodocModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="borderline"></div>
+                  <h5 class="modal-title" id="exampleModalLabel">Informations praticien</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="btn-close">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <% for (var i=0; i< newMedecin.length; i++){%>
+
+                    <div class="text-med"><h6 class="info-med">Prénom:</h6> <span class="re-infomed"> <%=newMedecin[i].prenom%></span></div>
+                      </br>
+                    <div class="text-med"><h6 class="info-med">Nom:</h6> <span class="re-infomed"><%=newMedecin[i].nom%></span></div>
+                      </br>
+                    <div class="text-med"><h6 class="info-med">Adresse:</h6> <span class="re-infomed"><%=newMedecin[i].adress%></span></div>
+                      </br>
+                    <div class="text-med"><h6 class="info-med">Email:</h6> <span class="re-infomed"><%=newMedecin[i].email%></span></div>
+                      </br>
+                    <div class="text-med"><h6 class="info-med">Profession:</h6> <span class="re-infomed"><%=newMedecin[i].profession%></span></div>
+                      </br>
+                    <div class="text-med"><h6 class="info-med">Numéro:</h6><span class="re-infomed">0<%=newMedecin[i].numero%></span></div>
+
+                  <%
+                }
+                %>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- FIN MODAL INFO MEDECIN -->
+
+          <!-- CARD AJOUT MEDECIN -->
+          <% for (var i=0; i< newMedecin.length; i++){%>
+
+          <div class="card-doc">
+
+           <a href="/infos?id=<%=newMedecin[i].id%>" class="col-2"><i class="picto-doc far fa-user-circle" class="picto-infodoc"></i></a>
+
+
+          <div class="text-doc col-8">
+            <p class="text"> <%=newMedecin[i].profession%></p>
+            <p class="text"><%=newMedecin[i].nom%></p>
+          </div>
+        <a  id="delete-medecin"href="/delete-medecin?id=<%=newMedecin[i]._id%>"><i class="fas fa-times-circle text-right"></i></a>
+           </div>
+           <%
+         }
+         %>
+          <!-- FIN CARD AJOUT MEDECIN -->
+             <button class="cross" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">+</button>
+        </div>
+      </div>
+      <div class="medical col-8" >
+        <!-- AJOUT EPISODE -->
+          <div class="add-ep">
+            <button type="button" class="cross" class="btn btn-primary" data-toggle="modal" data-target="#episodeModal" data-whatever="@getbootstrap">+</button>
+          </div>
+          <div class="modal fade" id="episodeModal" tabindex="-1" role="dialog" aria-labelledby="episodeModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="borderline"></div>
+                  <h5 class="modal-title" id="episodeModalLabel">Ajouter un épisode médical</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span class="btn-addEp" class="button"  aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                  <form method="POST" action="/add-episode">
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label ">Maladie</label>
+                      <input type="text" class="form-control" id="recipient-name" name="maladie">
+                    </div>
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Date</label>
+                      <input type="date" class="form-control" id="recipient-name" name="date">
+                    </div>
+
+                    <label for="recipient-name" class="col-form-label">Choisissez votre pictogramme</label>
+
+                    <div class="picto_choice">
+                      <% for(var i = 0; i < pictos.length; i++){%>
+
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="picto" value="<%=pictos[i].url%>" id="inlineRadio<%=i%>">
+                          <label class="form-check-label" for="inlineRadio1"><img class="picto1" src="/<%=pictos[i].url%>" alt=""></label>
+                        </div>
+                     <%}%>
+
+                    </div>
+
+                    <div class="modal-footer">
+                      <button class="add" type="submit" class="btn btn-primary">Ajouter</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- FIN AJOUT EPISODE -->
+          <div class="liseret-2"></div>
+          <div class="ep">
+            <h2 id="main_title">Mes épisodes</h2></div>
+          <!-- RECHERCHE DOSSIER     -->
+            <!-- <div class="nav">
+            <nav class="nav-co" class="navbar navbar-light bg-light">
+              <form class="form-inline">
+                <input class="form-control mr-sm-2" id="search_bar" type="search" placeholder="Rechercher un dossier" aria-label="Search">
+                <div class="search"><button class=" btn" type="submit"><i  class="fas fa-search"></i></button></div>
+              </form>
+            </nav>
+          </div> -->
+          <div class="container">
+            <div class="row" >
+
+                    <% for (var i=0; i< newEpisode.length; i++){%>
+
+                        <div class="col-4" id="card-episode">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header text-center background-maladie">
+                              <div class="row">
+                                <h5  class="card-title col-10  name-maladie"><%=newEpisode[i].maladie%></h5>
+                                <a class="col-1"href="/delete-episode?id=<%=newEpisode[i]._id%>"><i  class="fas fa-times-circle  delete-episode"></i></a>
+                              </div>
+                            </div>
+                            <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+                            <div class="">
+
+                          </div>
+                            <div class="card-body text-center">
+                                <img src="/<%=newEpisode[i].url%>" class="picto2" alt="">
+                                <p class="card-text text-center episode-item p-2"></p>
+                                <input type="hidden" class="episode" value="<%= newEpisode[i].date %>">
+                            </div>
+                            <div class="card-footer text-center back-ground">
+                              <a id="lien-episode" href="/timeline?id=<%=newEpisode[i]._id%>">Voir episode</a>
+                            </div>
+                        </div>
+                        </div>
+                      <%
+                    }
+                    %>
+
+
+                  </div>
+              </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="./javascripts/moment.js"></script>
+  </script>
+  <script>
+    var moments = new moment();
+    moments.locale('fr');
+    var input = document.getElementsByClassName('episode');
+
+    for (var i = 0; i < input.length; i++) {
+        for (var i = 0; i < document.getElementsByClassName('episode-item').length; i++) {
+          document.getElementsByClassName('episode-item')[i].textContent ="Mise à jour le : " + moment(input[i].value).format('L');
+        }
+    }
+  </script>
+
+</body>
+</html>

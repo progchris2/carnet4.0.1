@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/infos.css">
+    <title></title>
+  </head>
+  <body>
+    <div class="col-lg-12 col-sm-12 col-md-12">
+      <div class="row background-color">
+      <!-- NAVBAR DU HAUT -->
+    <navbar>
+      <div class="title">
+        <div class="right_header" class="btn-group">
+          <button class="btn" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mon compte</button>
+          <div id="deconnexion" class="dropdown-menu dropdown-menu-right">
+            <a href="/perso" class="dropdown-item" type="">Modifier mon compte</a>
+            <a href="/upload_img" class="dropdown-item" type="">Upload</a>
+            <a href="/galerie" class="dropdown-item" type="">Galerie</a>
+            <a href="/advice" class="dropdown-item" type="">Conseils</a>
+            <a href="/dashboard"class="dropdown-item" type="">Dashboard</a>
+            <a href="/logOut" class="dropdown-item" type="">Déconnexion</a>
+          </div>
+        </div>
+        <div class="liseret"></div>
+      <span><h6 class="name"><a href="/dashboard"class="btn-principal" type=""><span class="first-letter">V</span>ivo</a></h6></span>
+      </div>
+    </navbar>
+  <!-- FIN NAVBAR -->
+
+ <!-- DEBUT INFO MEDECIN -->
+
+
+  <div  id="perso"class="modal-body">
+  <span><h6 class="name" style="margin-left: 600px;"><span class="first-letter">I</span>nformations praticien</h6></span>
+    <form>
+</br>
+</br>
+</br>
+      <div class="form-group">
+        <label  class="info" for="recipient-name" class="col-form-label">Nom: <span><%=newMedecin[0].nom%></span></label>
+      </div>
+</br>
+      <div class="form-group">
+        <label class="info" for="message-text" class="col-form-label">Prenom: <span><%=newMedecin[0].prenom%></label>
+      </div>
+
+</br>
+
+      <div class="form-group">
+        <label class="info"for="message-text" class="col-form-label">Adresse: <span><%=newMedecin[0].adress%></label>
+      </div>
+
+</br>
+
+      <div class="form-group">
+          <label class="info"for="exampleInputEmail1">Adresse mail: <span><%=newMedecin[0].email%></label>
+        </div>
+</br>
+        <div class="form-group">
+          <label class="info"for="message-text" class="col-form-label">Profession: <span><%=newMedecin[0].profession%></label>
+        </div>
+</br>
+        <div class="form-group">
+          <label class="info" for="message-text" class="col-form-label">Téléphone: <span style="margin-left: 10px;">0<%=newMedecin[0].numero%></label>
+        </div>
+
+
+    </form>
+  </div>
+  <!-- FIN INFOS MEDECIN -->
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+</html>

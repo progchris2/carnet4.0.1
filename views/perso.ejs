@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/perso.css">
+    <title></title>
+  </head>
+  <body>
+    <div class="col-lg-12 col-sm-12 col-md-12">
+      <div class="row background-color">
+      <!-- NAVBAR DU HAUT -->
+        <navbar>
+          <div class="title">
+            <div class="right_header" class="btn-group">
+              <button class="btn" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mon compte</button>
+              <div id="deconnexion" class="dropdown-menu dropdown-menu-right">
+                  <a href="/perso" class="dropdown-item" type="">Modifier mon compte</a>
+                  <a href="/upload_img" class="dropdown-item" type="">Upload</a>
+                  <a href="/galerie" class="dropdown-item" type="">Galerie</a>
+                  <a href="/advice" class="dropdown-item" type="">Conseils</a>
+                  <a href="/logOut" class="dropdown-item" type="">Déconnexion</a>
+                </div>
+            </div>
+            <div class="liseret"></div>
+          <span><h6 class="name"><a href="/dashboard"class="btn-principal" type=""><span id="first-letter">V</span>ivo</a></h6></span>
+          </div>
+        </navbar>
+  <!-- FIN NAVBAR -->
+
+
+
+
+
+        <div  id="perso" class="modal-body">
+
+          <form method="post" action="/perso" enctype="multipart/form-data">
+            <div class="form-group">
+              <label  class="info" for="nom" class="col-form-label">Nom</label>
+              <input type="text" class="form-control" id="nom" placeholder="Nom" name="nom" value="<%=user.nom%>">
+            </div>
+
+            <div class="form-group">
+              <label class="info" for="prenom" class="col-form-label">Prenom</label>
+              <input type="text" class="form-control" id="prenom" placeholder="prenom" name="prenom" value="<%=user.prenom%>">
+            </div>
+
+            <div class="form-group">
+              <label class="info" for="avatar" class="col-form-label">Avatar</label>
+              <input type="file" class="form-control" id="avatar"  name="avatar">
+            </div>
+
+            <div class="form-group">
+              <label class="info" for="sexe">Sexe</label>
+              <select class="form-control" id="sexe" name="sexe">
+                  <option>Sexe</option>
+                  <option value="Femme">Femme</option>
+                  <option value="Homme">Homme</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="info" for="date" class="col-form-label">Date de naissance</label>
+              <input type="date" class="form-control" id="date" placeholder="Date de naissance" name="date" value="<%=user.date_de_naissance%>">
+            </div>
+
+            <div class="form-group">
+              <label class="info" for="pays" class="col-form-label">Pays</label>
+              <input type="text" class="form-control" id="pays" placeholder="pays" name="pays" value="<%=user.pays%>">
+            </div>
+
+            <div class="form-group">
+              <labelclass="info" for="taille" class="col-form-label">Taille</label>
+              <input type="text "class="form-control" id="taille" placeholder="Taille" name="taille">
+            </div>
+
+            <div class="form-group">
+              <label class="info"for="poids" class="col-form-label">Poids</label>
+              <input type="text" class="form-control" id="poids" placeholder="Poids" name="poids">
+            </div>
+
+            <div class="form-group">
+              <label class="info"for="adress" class="col-form-label">Adresse</label>
+              <input type="text"class="form-control" id="adress" placeholder="Adresse" name="adresse">
+            </div>
+
+            <div class="form-group">
+              <label class="info" for="telephone" class="col-form-label">Téléphone</label>
+              <input type="number"class="form-control" id="telephone" placeholder="Téléphone" name="telephone">
+            </div>
+
+            <div class="form-group">
+                <label class="info" for="email">Email</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" name="email" value="<%=user.email%>">
+              </div>
+
+              <div class="form-group">
+                <label class="info" for="profession" class="col-form-label">Profession</label>
+                <input type="text"class="form-control" id="profession" placeholder="Profession" name="profession">
+              </div>
+
+            <div class="form-group">
+              <label class="info" for="groupesanguin">Groupe sanguin</label>
+              <select class="form-control" id="groupesanguin"  name="groupesanguin">
+                <option>Groupe sanguin</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="info" for="alergene">Allergènes</label>
+              <textarea class="form-control" id="allergene" name="allergene" placeholder="allergenes" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="info" for="traitementsmedeciaux">Traitements médicaux</label>
+              <textarea class="form-control" id="traitementsmedeciaux" name="traitementsMedicaux" placeholder="Traitements médicaux" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="info" for="antecentsmedicaux">Antécédents médicaux</label>
+              <textarea class="form-control" id="antecentsmedicaux" name="antecentsMedicaux" placeholder="Antécedents médicaux" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="info" for="antecedentsfamiliaux">Antécédents familiaux</label>
+              <textarea class="form-control" id="antecedentsfamiliaux" name="antecedentsFamiliaux" placeholder="Antecédents familiaux" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="info" for="cartevitale" class="col-form-label">Carte Vitale</label>
+              <input type="number" class="form-control" id="cartevitale" placeholder="Carte Vitale" name="carteVitale">
+            </div>
+
+            <div class="form-group">
+              <label class="info" for="message-text" class="col-form-label">Mutuelle</label>
+              <input type="text"class="form-control" id="mutuelle" placeholder="Mutuelle" name="mutuelle">
+            </div>
+
+            <div class="modal-footer">
+              <button class="add" type="submit" class="btn btn-primary">Enregistrer</button>
+            </div>
+
+          </form>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+</html>

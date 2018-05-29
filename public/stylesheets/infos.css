@@ -1,0 +1,133 @@
+body{
+}
+
+span{
+  text-transform: capitalize;
+  font-weight: lighter;
+}
+navbar {
+ background-color: #22314E;
+ height: 50px;
+ width: 100vw;
+ position: absolute;
+ top: 0px;
+}
+.btn-principal{
+   display: block;
+color: white !important;
+   border: 0;
+   margin-bottom: 50px !important;
+
+}
+
+.btn-principal:hover{
+  text-decoration: none;
+}
+
+form{
+  width:400px !important;
+  margin: auto;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 30px;
+}
+
+h6.name_medecin{
+margin: 0 !important;
+margin-top: 10px;
+font-family: 'Courgette', sans-serif;
+font-size: 20px;
+}
+
+
+
+.liseret {
+ height: 7px;
+ width: 100vw;
+ /* Rectangle 2: */
+ background: #00957C;
+ position: absolute;
+ top: 43px;
+}
+
+.title {
+ color: white;
+}
+.right_header {
+ color: #fff;
+ float: right;
+ margin-bottom: auto;
+ background-color: #22314E;
+ margin-top: 15px;
+
+}
+button.btn {
+ background-color: #22314E;
+ color: white;
+ border-radius: 0px 5px 5px 0px;
+ margin-left: -1px;
+ margin-top: -30px;
+ margin-right: 20px;
+}
+.name {
+ margin-top: 10px;
+ font-family: 'Courgette', sans-serif;
+ font-size: 20px;
+ margin-left: 10px;
+}
+
+
+
+#deconnexion {
+ background-color: #00957C;
+ color: #22314E;
+}
+.add {
+ background: #22314E;
+ color: white;
+ border-radius: 5px;
+ margin-top: 10px;
+}
+
+.form-group {
+   margin-bottom: 1rem;
+
+}
+
+
+
+
+.modal-body {
+   margin-top: 150px;
+   width: 400px !important;
+
+}
+
+.modal-footer{
+ width: 400px !important;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+label{
+  margin: auto;
+  font-weight: bold;
+}
+
+.info{
+ color: #22314E;
+
+}
+
+.first-letter{
+  color: #00957C;
+  display: inline-flex;
+}
+
+.modal-body{
+  text-align: center;
+}
+.form-group{
+  /* border: 1px solid #00957C; */
+  border-radius: 10px;
+}

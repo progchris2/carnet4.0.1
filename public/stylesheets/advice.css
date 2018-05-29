@@ -1,0 +1,67 @@
+.liseret {
+  height: 7px;
+  width: 100vw;
+  background: #00957C;
+  position: absolute;
+  top: 43px;
+}
+
+.title {
+  color: white;
+}
+
+.right_header {
+  color: #fff;
+  float: right;
+  margin-bottom: auto;
+  background-color: #22314E;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+.name {
+  margin-top: 10px;
+  padding-left: 20px;
+  font-family: 'Courgette', sans-serif;
+  font-size: 20px;
+}
+
+.btn-principal{
+    display: block;
+color: white !important;
+    border: 0;
+    margin-bottom: 50px !important;
+
+}
+
+.card-advice {
+  border: 1px solid #00957C;
+  height: auto;
+  width: auto;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  margin-right: 60px;
+  margin-left: 60px;
+}
+
+span#first-letter {
+  color: #00957C;
+  display: inline-flex;
+}
+
+h1 {
+  text-align: center;
+  color: #22314E;
+}
+
+h5 {
+  color: #22314E;
+  text-align: center;
+  font-size: 22px;
+}
+
+p {
+  font-size: 18px;
+  color: #22314E;
+  text-align: center;
+  margin-right: 63px;
+  margin-left: 110px;
